@@ -58,7 +58,9 @@
     subd:"تم الاشتراك — كود الـ15% في طريقه لك",
     shopNow:"تسوق دلوقتي", size:"مقاس", remove:"شيل", items:"منتج", under:"أقل من",
     fDeal:"خصم 50% أو أكتر", feedKick:"كل المتوفر", feedH:"كل المنتجات",
-    bbHome:"الرئيسية", bbSearch:"بحث", bbShop:"تسوق",
+    bbHome:"الرئيسية", bbSearch:"بحث", bbShop:"تسوق", freeDel:"شحن مجاني",
+    flash:"عرض سريع", endsIn:"ينتهي خلال", seeAll:"شوف الكل", topBrands:"أشهر الماركات",
+    shopCat:"تسوق حسب القسم", trending:"الأكثر رواجاً", newToFig:"جديد على FIG",
     bigSrch:"دور على فساتين، إيدن بارك، شنط…"
   }};
   if (TH.ar) Object.keys(TH.ar).forEach(function(k){ T.ar[k] = TH.ar[k]; });
@@ -201,13 +203,18 @@
               : low ? t("onlyLeft","Only {n} left").replace("{n}", p.st)
               : t("inStock","In stock · collect in 2 hours");
     var tag = p.cut ? '<span class="tag">−' + p.cut + '%</span>' : '<span class="tag soft">' + t("newTag","New") + '</span>';
+    var brandCell = TH.cardBrandText
+      ? '<span class="bn">' + hName(HB[p.b]) + '</span>'
+      : logo(p.b);
     return '<article class="card" data-id="' + p.id + '">' +
       '<div class="ph"><img src="' + img(p.img) + '" alt="' + p.n + '" loading="lazy">' + tag +
       '<button class="fav" type="button" aria-pressed="false" aria-label="Save">♡</button>' +
       '<button class="quick" type="button">' + t("completeLook","Complete the look") + '</button></div>' +
-      '<div class="in"><div class="bh">' + logo(p.b) + '</div>' +
+      '<div class="in"><div class="bh">' + brandCell + '</div>' +
       '<p class="nm">' + pName(p) + '</p>' +
-      '<div class="pr"><span class="now">' + money(p.now) + '</span>' + (p.cut ? '<s>' + egp(p.was) + '</s>' : "") + '</div>' +
+      '<div class="pr"><span class="now">' + money(p.now) + '</span>' + (p.cut ? '<s>' + egp(p.was) + '</s>' : "") +
+        (p.cut ? '<span class="off">−' + p.cut + '%</span>' : "") + '</div>' +
+      (TH.cardFreeDelivery ? '<span class="freedel">' + t("freeDel","Free delivery") + '</span>' : "") +
       '<div class="szs">' + szs + '</div>' +
       '<div class="avail"><span class="d ' + (none ? "no" : low ? "low" : "") + '"></span><em>' + avail + '</em></div>' +
       '<div class="add"><button type="button" class="' + (none ? "off" : "") + '">' +
