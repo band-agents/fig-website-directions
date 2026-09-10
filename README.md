@@ -39,7 +39,7 @@ patterns are the reference; every asset, brand, price and photograph is FIG's ow
 
 ## Working on them
 
-The three sites share one engine. Sources live in [`src/`](src/):
+Edit, Bazaar, Prism and Loop share one engine. Sources live in [`src/`](src/):
 
 ```
 src/engine.js       shared JS — data, i18n, cards, cart, search, drawer, carousels
