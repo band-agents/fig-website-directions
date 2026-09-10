@@ -8,9 +8,16 @@ calls. Open `index.html` in any browser.
 
 | Direction | Personality | Typefaces | Ground |
 |---|---|---|---|
+| [`edit/`](edit/) | Fashion magazine — full-bleed, bold **(client favourite)** | Syne + DM Sans | `#FFFFFF` |
+| [`bazaar/`](bazaar/) | Marketplace — dense rails, flash sale, merchandising-led | Figtree | `#FFFFFF` |
+| [`prism/`](prism/) | Marketplace rails, magazine voice — a hybrid of the two above | Syne + Figtree | `#FFFFFF` |
 | [`maison/`](maison/) | Warm editorial — chic, image-led | Instrument Serif + Manrope | `#F4F2EE` |
-| [`edit/`](edit/) | Fashion magazine — full-bleed, bold | Syne + DM Sans | `#FFFFFF` |
 | [`loop/`](loop/) | Visual shopping feed — tap-first | Sora + Plus Jakarta Sans | `#FAF8F5` |
+
+`bazaar/` and `prism/` follow the layout conventions of large regional marketplaces —
+rail-based merchandising, a gender pill in the nav, a flash-sale strip with a live countdown, and a
+product card that leads with the brand name over a grey product name. The structure and interaction
+patterns are the reference; every asset, brand, price and photograph is FIG's own.
 
 ## What's in every direction
 
@@ -37,8 +44,7 @@ The three sites share one engine. Sources live in [`src/`](src/):
 ```
 src/engine.js       shared JS — data, i18n, cards, cart, search, drawer, carousels
 src/imgs.json       58 base64 images (2.1 MB) — products, heroes, banners
-src/edit.src.html   thin source: markup + CSS + a FIG_THEME block
-src/loop.src.html   ditto
+src/*.src.html      thin sources: markup + CSS + a FIG_THEME block
 src/build.mjs       inlines engine.js + imgs.json into a standalone file
 ```
 
